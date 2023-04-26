@@ -25,15 +25,21 @@ class Bullet {
 
     init() {
         this.imageInstance = new Image()
-        this.imageInstance.src = "./images/bullets.png"
+        this.imageInstance.src = "./images/banana.png"
     }
     drawBullet() {
+        this.ctx.drawImage(
+            this.imageInstance,
+            this.bulletPos.x,
+            this.bulletPos.y,
+            50,
+            50
+        )
         if (this.playerID === "player1") {
             this.ctx.fillStyle = 'black'
             this.ctx.fillRect(this.bulletPos.x, this.bulletPos.y, this.bulletSize.w, this.bulletSize.h)
         }
         if (this.playerID === "player2") {
-            this.ctx.fillStyle = 'red'
             this.ctx.fillRect(this.bulletPos.x, this.bulletPos.y, this.bulletSize.w, this.bulletSize.h)
         }
         this.move()
