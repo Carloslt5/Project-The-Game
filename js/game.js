@@ -15,7 +15,8 @@ const GameApp = {
         player1: undefined,
         player2: undefined,
     },
-    //jumpCounter: 0,
+    hitCounterP1: 0,
+    hitCounterP2: 0,
     framesCounter: 0,
     gravity: undefined,
     fps: 60,
@@ -45,15 +46,18 @@ const GameApp = {
             this.clearAll()
             this.drawAll()
             this.setEventListeners()
-            this.hitPlayer1() ? console.log('Colision p1') : null
-            this.hitPlayer2() ? console.log('Colision p2') : null
+            this.hitPlayer1() ? this.hitCounterP1++ : null
+            this.hitPlayer2() ? this.hitCounterP2++ : null
+            this.checkLifes()
+            console.log(this.hitCounterP1, this.hitCounterP2)
             this.bouncingBulletsPlayer1()
             this.bouncingBulletsPlayer2()
             this.framesCounter > 300 ? this.framesCounter = 0 : this.framesCounter++
         }, 1700 / this.fps)
 
+
     },
-    setGravity() { this.gravity = this.canvasSize.h / 350 },
+    setGravity() { this.gravity = this.canvasSize.h / 365 },
 
     setEventListeners() {
         document.onkeydown = event => {
@@ -77,6 +81,7 @@ const GameApp = {
             if (key == 'ArrowUp') { this.players.player2.playerVelocity.y }
         }
     },
+
 
     createPlayer() {
         this.players.player1 = new Player(
@@ -141,6 +146,30 @@ const GameApp = {
             )
         })
     },
+    checkLifes() {
+
+        if (this.hitCounterP1 === 1) {
+            document.getElementById('heart-3').style.visibility = 'hidden'
+        }
+        if (this.hitCounterP1 === 2) {
+            document.getElementById('heart-2').style.visibility = 'hidden'
+        }
+        if (this.hitCounterP1 === 3) {
+            document.getElementById('heart-1').style.visibility = 'hidden'
+            document.getElementById('P2_wins').style.visibility = 'visible'
+
+        }
+        if (this.hitCounterP2 === 1) {
+            document.getElementById('heart-4').style.visibility = 'hidden'
+        }
+        if (this.hitCounterP2 === 2) {
+            document.getElementById('heart-5').style.visibility = 'hidden'
+        }
+        if (this.hitCounterP2 === 3) {
+            document.getElementById('heart-6').style.visibility = 'hidden'
+            document.getElementById('P1_wins').style.visibility = 'visible'
+        }
+    },
 
     bouncingBulletsPlayer1() {
         this.players.player1.bulletsArr = this.players.player1.bulletsArr.filter(bullet => {
@@ -158,18 +187,13 @@ const GameApp = {
     bouncingBulletsPlayer2() {
         this.players.player2.bulletsArr = this.players.player2.bulletsArr.filter(bullet => {
             if (bullet.bulletPos.x < this.wall.wallSpecs.pos.x + this.wall.wallSpecs.size.w &&
-                bullet.bulletPos.x > this.wall.wallSpecs.pos.x - this.wall.wallSpecs.size.w &&
+                bullet.bulletPos.x > this.wall.wallSpecs.pos.x &&
                 bullet.bulletPos.y > this.canvasSize.h / 2 - 70
             ) {
                 return false
             }
             return true
         })
-    },
-
-    reset() {
-        this.createBackground()
-        this.createPlayer()
     },
 
     drawAll() {

@@ -1,5 +1,52 @@
 body {
-    height: 100vh;
+    box-sizing: border-box;
+    font-family: sans-serif;
     margin: 0;
     padding: 0;
+
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+canvas {
+    position: relative;
+}
+
+.container_heart {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    padding: 1em;
+    padding-top: 2em;
+    position: absolute;
+    top: 0;
+    width: 98%;
+}
+
+.container_gameOver {
+    background-color: rgb(65, 97, 97);
+    margin-left: 37%;
+    padding: 100px;
+    position: absolute;
+    top: 35%;
+    visibility: hidden;
+}
+
+.container_gameOver p {
+    color: #fff;
+    font-size: 2em;
+
+}
+
+.player {
+    display: flex;
+    gap: 2em;
+    width: 15%;
+}
+
+img {
+    margin: 10px
 }

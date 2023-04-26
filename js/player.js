@@ -94,14 +94,12 @@ class Player {
     }
 
     animate() {
-        if (this.framesCounter % 4 == 0) {
+        if (this.framesCounter % 2 == 0) {
             this.image.framesIndex++;
         }
         if (this.image.framesIndex >= this.image.frames) {
             this.image.framesIndex = 0
         }
-        console.log(this.framesCounter)
-
     }
     gravityMovement() {
         this.playerPos.x += this.playerVelocity.x
@@ -131,11 +129,11 @@ class Player {
     clearBullets() {
         this.bulletsArr = this.bulletsArr.filter(bullet => {
             if (this.playerID === 'player1') {
-                return bullet.bulletPos.x < this.canvasSize.w //|| bullet.bulletPos.x > 0
+                return bullet.bulletPos.x < this.canvasSize.w
 
             }
             if (this.playerID === 'player2') {
-                return bullet.bulletPos.x > 0 //|| bullet.bulletPos.x < this.canvasSize.w
+                return bullet.bulletPos.x > 0
             }
         })
     }
