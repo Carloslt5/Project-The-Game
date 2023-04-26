@@ -110,8 +110,8 @@ class Player {
         } else {
             this.playerVelocity.y = 0
         }
-        if (this.playerPos.y < 50) {
-            this.playerVelocity.y *= -1
+        if (this.playerPos.y + this.playerSize.h < 0) {
+            this.playerVelocity.y *= 0
 
         }
     }

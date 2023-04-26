@@ -32,16 +32,16 @@ class Bullet {
             this.imageInstance,
             this.bulletPos.x,
             this.bulletPos.y,
-            50,
-            50
+            30,
+            30
         )
-        if (this.playerID === "player1") {
-            this.ctx.fillStyle = 'black'
-            this.ctx.fillRect(this.bulletPos.x, this.bulletPos.y, this.bulletSize.w, this.bulletSize.h)
-        }
-        if (this.playerID === "player2") {
-            this.ctx.fillRect(this.bulletPos.x, this.bulletPos.y, this.bulletSize.w, this.bulletSize.h)
-        }
+        // if (this.playerID === "player1") {
+        //     this.ctx.fillStyle = 'black'
+        //     this.ctx.fillRect(this.bulletPos.x, this.bulletPos.y, this.bulletSize.w, this.bulletSize.h)
+        // }
+        // if (this.playerID === "player2") {
+        //     this.ctx.fillRect(this.bulletPos.x, this.bulletPos.y, this.bulletSize.w, this.bulletSize.h)
+        // }
         this.move()
     }
     move() {

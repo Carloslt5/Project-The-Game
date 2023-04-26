@@ -26,7 +26,9 @@ const GameApp = {
         this.start()
     },
 
-    setContext() { this.ctx = document.querySelector('canvas').getContext('2d') },
+    setContext() {
+        this.ctx = document.querySelector('canvas').getContext('2d')
+    },
 
     setDimensions() {
         this.canvasSize = {
@@ -52,6 +54,7 @@ const GameApp = {
             console.log(this.hitCounterP1, this.hitCounterP2)
             this.bouncingBulletsPlayer1()
             this.bouncingBulletsPlayer2()
+
             this.framesCounter > 300 ? this.framesCounter = 0 : this.framesCounter++
         }, 1700 / this.fps)
 
@@ -111,7 +114,7 @@ const GameApp = {
     },
 
     createBackground() {
-        this.background = new Background(this.ctx, this.canvasSize)
+        this.background = new Background(this.ctx, this.canvasSize, this.framesCounter)
     },
     hitPlayer1() {
         return this.players.player2.bulletsArr.some(bullet => {
@@ -175,8 +178,7 @@ const GameApp = {
         this.players.player1.bulletsArr = this.players.player1.bulletsArr.filter(bullet => {
             if (bullet.bulletPos.x > this.wall.wallSpecs.pos.x &&
                 bullet.bulletPos.x < this.wall.wallSpecs.pos.x + this.wall.wallSpecs.size.w &&
-                bullet.bulletPos.y > this.canvasSize.h / 2 - 70
-            ) {
+                bullet.bulletPos.y > this.canvasSize.h / 2 - 70) {
                 return false
             }
             return true

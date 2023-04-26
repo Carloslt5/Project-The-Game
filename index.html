@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
     <canvas id="canvas"></canvas>
     <div class="container_gameOver" id="P1_wins">
         <p>Player1 Wins</p>
@@ -29,12 +30,17 @@
             <div><img id="heart-6" src="./images/heart.png" alt="" /></div>
         </div>
     </div>
+    <audio autoplay loop>
+        <source src="./audio/music.mp3" type="audio/mp3">
+        <source src="./audio/music.ogg" type="audio/ogg">
+    </audio>
     <script src="./js/background.js"></script>
     <script src="./js/wall.js"></script>
     <script src="./js/bullet.js"></script>
     <script src="./js/player.js"></script>
     <script src="./js/game.js"></script>
     <script src="./js/index.js"></script>
+
 </body>
 
 </html>
