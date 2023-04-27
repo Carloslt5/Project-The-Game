@@ -12,14 +12,14 @@ class Bullet {
             y: playerPosY
         }
         this.bulletSize = {
-            w: w / 144,
-            h: w / 144,
+            w: 30,
+            h: 30,
         }
         this.bulletVelocity = {
-            x: 50,
+            x: 55,
             y: 50
         }
-        this.gravity = gravity * 3
+        this.gravity = gravity * 7
         this.init()
     }
 
@@ -35,17 +35,10 @@ class Bullet {
             30,
             30
         )
-        // if (this.playerID === "player1") {
-        //     this.ctx.fillStyle = 'black'
-        //     this.ctx.fillRect(this.bulletPos.x, this.bulletPos.y, this.bulletSize.w, this.bulletSize.h)
-        // }
-        // if (this.playerID === "player2") {
-        //     this.ctx.fillRect(this.bulletPos.x, this.bulletPos.y, this.bulletSize.w, this.bulletSize.h)
-        // }
         this.move()
     }
     move() {
-        // if (this.bulletPos.x >= this.canvasSize.w - this.bulletSize.w) this.turnHorizontal()
+
         if (this.playerID === "player1") {
             this.bulletPos.y -= this.bulletVelocity.y   //horizontalidad de las balas
             this.bulletPos.x += this.bulletVelocity.x

@@ -18,16 +18,16 @@ canvas {
 .container_heart {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
-    padding: 1em;
-    padding-top: 2em;
+    justify-content: space-between;
+    padding: 2em 4em;
     position: absolute;
     top: 0;
-    width: 98%;
 }
 
 .container_gameOver {
     background-color: rgb(26, 26, 26);
+    border: 10px solid #8d8d8d;
+    border-radius: 10px;
     margin-left: 37%;
     padding: 100px;
     position: absolute;
@@ -43,7 +43,7 @@ canvas {
 
 .player {
     display: flex;
-    gap: 2em;
+    gap: 1em;
     width: 15%;
 }
 
