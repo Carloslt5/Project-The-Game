@@ -23,9 +23,12 @@ const GameApp = {
         isPlayer1MovingLeft: false,
         isPlayer1MovingRight: false,
         isPlayer1Jumping: false,
+        isPlayer1Shooting: false,
+
         isPlayer2MovingLeft: false,
         isPlayer2MovingRight: false,
         isPlayer2Jumping: false,
+        isPlayer2Shooting: false,
     },
 
     init() {

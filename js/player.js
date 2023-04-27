@@ -22,8 +22,8 @@ class Player {
             x: 0,
             y: 0
         }
+        this.activeShoot = false
         this.movements = movements
-        this.latsKey = undefined
         this.wallSpecs = wallSpecsValue
         this.bulletsArr = []
         this.gravity = 1
@@ -140,13 +140,13 @@ class Player {
                     this.animate()
                 }
             }
+
         }
 
     }
 
     shoot() {
         if (this.bulletsArr.length < 6) {
-            console.log(this.bulletsArr)
             this.bulletsArr.push(new Bullet(
                 this.ctx,
                 this.canvasSize,
@@ -156,6 +156,24 @@ class Player {
                 this.gravity));
         }
     }
+    /*   shoot() {
+          this.activeShoot = true
+          if (this.activeShoot) {
+              if (this.bulletsArr.length < 6) {
+                  this.bulletsArr.push(new Bullet(
+                      this.ctx,
+                      this.canvasSize,
+                      this.playerPos.x,
+                      this.playerPos.y,
+                      this.playerID,
+                      this.gravity)
+                  )
+                  console.log(this.activeShoot)
+                  this.activeShoot = false
+              }
+          }
+          console.log(this.bulletsArr)
+      } */
 
     clearBullets() {
         this.bulletsArr = this.bulletsArr.filter(bullet => {
