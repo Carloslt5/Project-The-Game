@@ -145,7 +145,8 @@ class Player {
     }
 
     shoot() {
-        if (this.bulletsArr.length < 5) {
+        if (this.bulletsArr.length < 6) {
+            console.log(this.bulletsArr)
             this.bulletsArr.push(new Bullet(
                 this.ctx,
                 this.canvasSize,
@@ -159,11 +160,20 @@ class Player {
     clearBullets() {
         this.bulletsArr = this.bulletsArr.filter(bullet => {
             if (this.playerID === 'player1') {
-                return bullet.bulletPos.x < this.canvasSize.w
-
+                if (bullet.bulletPos.x < this.canvasSize.w) {
+                    return true
+                }
+                if (bullet.bulletPos.x > 0 || bullet.bulletPos.x + bullet.bulletSize.w > this.canvasSize.w) {
+                    return false
+                }
             }
             if (this.playerID === 'player2') {
-                return bullet.bulletPos.x > 0
+                if (bullet.bulletPos.x > 0) {
+                    return true
+                }
+                if (bullet.bulletPos.x < 0 || bullet.bulletPos.x + bullet.bulletSize.w > this.canvasSize.w) {
+                    return false
+                }
             }
         })
     }
