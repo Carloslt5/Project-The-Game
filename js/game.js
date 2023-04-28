@@ -43,8 +43,8 @@ const GameApp = {
 
     setDimensions() {
         this.canvasSize = {
-            w: window.innerWidth,
-            h: window.innerHeight
+            w: window.innerWidth - 2,
+            h: window.innerHeight - 2
         }
         document.querySelector('canvas').setAttribute('width', this.canvasSize.w)
         document.querySelector('canvas').setAttribute('height', this.canvasSize.h)
